@@ -81,7 +81,7 @@ library automatically invokes color quantization.
 A wide range of quality vs. speed tradeoffs are possible in JPEG processing,
 and even more so in decompression postprocessing.  The decompression library
 provides multiple implementations that cover most of the useful tradeoffs,
-ranging from very-high-quality down to fast-preview operation.  On the
+ranging from very-high-quality down to fast-thumbnail operation.  On the
 compression side we have generally not provided low-quality choices, since
 compression is normally less time-critical.  It should be understood that the
 low-quality modes may not meet the JPEG standard's accuracy requirements;
@@ -1142,7 +1142,7 @@ J_COLOR_SPACE out_color_space
 	based on jpeg_color_space; typically it will be RGB or grayscale.
 	The application can change this field to request output in a different
 	colorspace.  For example, set it to JCS_GRAYSCALE to get grayscale
-	output from a color file.  (This is useful for previewing: grayscale
+	output from a color file.  (This is useful for thumbnailing: grayscale
 	output is faster than full color since the color components need not
 	be processed.)  Note that not all possible color space transforms are
 	currently implemented; you may need to extend jdcolor.c if you want an

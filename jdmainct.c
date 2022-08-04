@@ -105,7 +105,7 @@
  * must be different (eg, we must read two iMCU rows before we can emit the
  * first row group).  For now, we simply do not support providing context
  * rows when min_DCT_scaled_size is 1.  That combination seems unlikely to
- * be worth providing --- if someone wants a 1/8th-size preview, they probably
+ * be worth providing --- if someone wants a 1/8th-size thumbnail, they probably
  * want it quick and dirty, so a context-free upsampler is sufficient.
  */
 
