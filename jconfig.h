@@ -1,4 +1,4 @@
-/*
+﻿/*
  * jconfig.txt
  *
  * Copyright (C) 1991-1994, Thomas G. Lane.
@@ -18,7 +18,7 @@
  * EDIT A COPY NAMED JCONFIG.H.
  */
 
-#include "operating_system/third_private_config.h"
+#include "config.h"
 
 /*
  * These symbols indicate the properties of your machine or compiler.
