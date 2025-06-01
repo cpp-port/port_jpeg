@@ -14,9 +14,9 @@ list(APPEND library_source
         cderror.h
         cdjpeg.c
         cdjpeg.h
-        cjpeg.c
-        ckconfig.c
-        djpeg.c
+        #cjpeg.c
+        #ckconfig.c
+        #djpeg.c
         #example.c
         jaricom.c
         jcapimin.c
@@ -64,7 +64,7 @@ list(APPEND library_source
         jidctint.c
         jinclude.h
         jmemmgr.c
-        jmemnobs.c
+        #jmemnobs.c
         jmemsys.h
         jmorecfg.h
         jpegint.h
@@ -77,7 +77,7 @@ list(APPEND library_source
         rdbmp.c
         rdcolmap.c
         rdgif.c
-        rdjpgcom.c
+        #rdjpgcom.c
         rdppm.c
         rdrle.c
         rdswitch.c
@@ -87,7 +87,7 @@ list(APPEND library_source
         transupp.h
         wrbmp.c
         wrgif.c
-        wrjpgcom.c
+        #wrjpgcom.c
         wrppm.c
         wrrle.c
         wrtarga.c
