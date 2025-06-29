@@ -1095,7 +1095,7 @@ pass2_fs_dither (j_decompress_ptr cinfo,
  * much less, otherwise obviously wrong pixels will be created.  (Typical
  * effects include weird fringes at color-area boundaries, isolated bright
  * pixels in a dark area, etc.)  The standard advice for avoiding this problem
- * is to ensure that the "corners" of the color cube are allocated as output
+ * is to ensure that the "corners" of the color graphics3d are allocated as output
  * colors; then repeated errors in the same direction cannot cause cascading
  * error buildup.  However, that only prevents the error from getting
  * completely out of hand; Aaron Giles reports that error limiting improves
