@@ -18,7 +18,7 @@
  * EDIT A COPY NAMED JCONFIG.H.
  */
 
-#include "config.h"
+#include "jpeg/config.h"
 
 /*
  * These symbols indicate the properties of your machine or compiler.
