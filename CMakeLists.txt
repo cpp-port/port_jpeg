@@ -55,7 +55,7 @@ list(APPEND library_source
         jdsample.c
         jdtrans.c
         jerror.c
-        jerror.h
+        include/jerror.h
         jfdctflt.c
         jfdctfst.c
         jfdctint.c
@@ -68,7 +68,7 @@ list(APPEND library_source
         jmemsys.h
         jmorecfg.h
         jpegint.h
-        jpeglib.h
+        include/jpeglib.h
         jpegtran.c
         jquant1.c
         jquant2.c
@@ -115,12 +115,13 @@ add_library(${PROJECT_NAME} SHARED ${library_source})
 target_compile_definitions(${PROJECT_NAME} PRIVATE OPJ_EXPORTS)
 
 
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../webp)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../jxr/common)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/FreeImage)
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../../operating_system/operating_system-${OPERATING_SYSTEM_LOWERED_NAME}/configuration/FreeImage)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../../operating_system/operating_system-${OPERATING_SYSTEM_LOWERED_NAME}/configuration/${PROJECT_NAME})
 
 
 
