@@ -62,7 +62,7 @@ list(APPEND library_source
         jidctflt.c
         jidctfst.c
         jidctint.c
-        jinclude.h
+        #jinclude.h
         jmemmgr.c
         #jmemnobs.c
         jmemsys.h
@@ -84,7 +84,7 @@ list(APPEND library_source
         rdtarga.c
         resource.h
         transupp.c
-        transupp.h
+        #transupp.h
         wrbmp.c
         wrgif.c
         #wrjpgcom.c
@@ -94,11 +94,11 @@ list(APPEND library_source
 
 )
 
-if(${LINUX} OR ${ANDROID})
+if(${LINUX} OR ${ANDROID} OR ${WIN32})
     list(APPEND library_source
         jmemansi.c
     )
-elseif(${MSVC})
+elseif(${MSDOS})
     list(APPEND library_source
         jmemdos.c)
 elseif(${MACOS})
@@ -114,6 +114,12 @@ add_library(${PROJECT_NAME} SHARED ${library_source})
 
 target_compile_definitions(${PROJECT_NAME} PRIVATE OPJ_EXPORTS)
 
+if(MSVC)
+
+    target_compile_definitions(${PROJECT_NAME} PRIVATE JPEG_EXPORTS)
+
+endif()
+
 
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
@@ -121,6 +127,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/.
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../webp)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../jxr/common)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/FreeImage)
+target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../../operating_system/operating_system-${OPERATING_SYSTEM_LOWERED_NAME}/configuration)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../../operating_system/operating_system-${OPERATING_SYSTEM_LOWERED_NAME}/configuration/${PROJECT_NAME})
 
 
