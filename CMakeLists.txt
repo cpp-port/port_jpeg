@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.16)
-project(jpeg CXX)
+project(port_jpeg CXX)
 
 if (MSVC)
     set(CMAKE_DEBUG_POSTFIX "d")
@@ -31,7 +31,7 @@ list(APPEND library_source
         jcmarker.c
         jcmaster.c
         jcomapi.c
-        jconfig.h
+        #include/port_jpeg/jconfig.h
         jcparam.c
         jcprepct.c
         jcsample.c
@@ -55,7 +55,7 @@ list(APPEND library_source
         jdsample.c
         jdtrans.c
         jerror.c
-        include/jerror.h
+        include/port_jpeg/jerror.h
         jfdctflt.c
         jfdctfst.c
         jfdctint.c
@@ -66,10 +66,10 @@ list(APPEND library_source
         jmemmgr.c
         #jmemnobs.c
         jmemsys.h
-        jmorecfg.h
-        jpegint.h
-        include/jpeglib.h
-        jpegtran.c
+        include/port_jpeg/jmorecfg.h
+        include/port_jpeg/jpegint.h
+        include/port_jpeg/jpeglib.h
+        #jpegtran.c
         jquant1.c
         jquant2.c
         jutils.c
@@ -124,9 +124,6 @@ endif()
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/..)
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../webp)
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../jxr/common)
-target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include/FreeImage)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../../operating_system/operating_system-${OPERATING_SYSTEM_LOWERED_NAME}/configuration)
 target_include_directories(${PROJECT_NAME} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../../../operating_system/operating_system-${OPERATING_SYSTEM_LOWERED_NAME}/configuration/${PROJECT_NAME})
 

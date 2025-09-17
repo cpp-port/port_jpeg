@@ -18,8 +18,8 @@
  */
 
 #define JPEG_INTERNALS
-#include "jinclude.h"
-#include "jpeglib.h"
+#include "port_jpeg/jinclude.h"
+#include "port_jpeg/jpeglib.h"
 
 
 /*

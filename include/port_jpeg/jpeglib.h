@@ -22,9 +22,9 @@
  */
 
 #ifndef JCONFIG_INCLUDED	/* in case jinclude.h already did */
-#include "jconfig.h"		/* widely used configuration options */
+#include "port_jpeg/jconfig.h"		/* widely used configuration options */
 #endif
-#include "jmorecfg.h"		/* seldom changed options */
+#include "port_jpeg/jmorecfg.h"		/* seldom changed options */
 
 
 #ifdef __cplusplus
@@ -1167,8 +1167,8 @@ struct jpeg_color_quantizer { long dummy; };
  */
 
 #ifdef JPEG_INTERNALS
-#include "jpegint.h"		/* fetch private declarations */
-#include "jerror.h"		/* fetch error codes too */
+#include "port_jpeg/jpegint.h"
+#include "port_jpeg/jerror.h"		/* fetch error codes too */
 #endif
 
 #ifdef __cplusplus

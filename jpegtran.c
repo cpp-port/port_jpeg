@@ -12,7 +12,7 @@
  */
 
 #include "cdjpeg.h"		/* Common decls for cjpeg/djpeg applications */
-#include "transupp.h"		/* Support routines for jpegtran */
+#include "port_jpeg/transupp.h"		/* Support routines for jpegtran */
 #include "jversion.h"		/* for version message */
 
 #ifdef USE_CCOMMAND		/* command-line reader for Macintosh */

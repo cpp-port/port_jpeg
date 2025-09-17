@@ -20,10 +20,10 @@
  */
 
 /* this is not a core library module, so it doesn't define JPEG_INTERNALS */
-#include "jinclude.h"
-#include "jpeglib.h"
+#include "port_jpeg/jinclude.h"
+#include "port_jpeg/jpeglib.h"
 #include "jversion.h"
-#include "jerror.h"
+#include "port_jpeg/jerror.h"
 
 #ifdef USE_WINDOWS_MESSAGEBOX
 #include <windows.h>
@@ -49,7 +49,7 @@
 #define JMESSAGE(code,string)	string ,
 
 const char * const jpeg_std_message_table[] = {
-#include "jerror.h"
+#include "port_jpeg/jerror.h"
   NULL
 };
 

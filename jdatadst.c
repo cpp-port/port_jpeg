@@ -16,9 +16,9 @@
  */
 
 /* this is not a core library module, so it doesn't define JPEG_INTERNALS */
-#include "jinclude.h"
-#include "jpeglib.h"
-#include "jerror.h"
+#include "port_jpeg/jinclude.h"
+#include "port_jpeg/jpeglib.h"
+#include "port_jpeg/jerror.h"
 
 #ifndef HAVE_STDLIB_H		/* <stdlib.h> should declare malloc(),free() */
 extern void * malloc JPP((size_t size));

@@ -17,9 +17,9 @@
  */
 #define JPEG_INTERNALS
 
-#include "jinclude.h"
-#include "jpeglib.h"
-#include "transupp.h"		/* My own external interface */
+#include "port_jpeg/jinclude.h"
+#include "port_jpeg/jpeglib.h"
+#include "port_jpeg/transupp.h"		/* My own external interface */
 #include <ctype.h>		/* to declare isdigit() */
 
 
