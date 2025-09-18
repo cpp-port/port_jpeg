@@ -13,7 +13,7 @@
  */
 
 #define JPEG_CJPEG_DJPEG	/* to get the command-line config symbols */
-#include "jinclude.h"		/* get auto-config symbols, <stdio.h> */
+#include "port_jpeg/jinclude.h"		/* get auto-config symbols, <stdio.h> */
 
 #ifdef HAVE_LOCALE_H
 #include <locale.h>		/* Bill Allombert: use locale for isprint */
