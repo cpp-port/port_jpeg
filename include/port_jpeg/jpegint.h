@@ -333,6 +333,48 @@ struct jpeg_color_quantizer {
 #define jpeg_natural_order3	jZAG3Table
 #define jpeg_natural_order2	jZAG2Table
 #define jpeg_aritab		jAriTab
+#else
+// #define jinit_compress_master	port_jinit_compress_master
+// #define jinit_c_master_control	port_jinit_c_master_control
+// #define jinit_c_main_controller	port_jinit_c_main_controller
+// #define jinit_c_prep_controller	port_jinit_c_prep_controller
+// #define jinit_c_coef_controller	port_jinit_c_coef_controller
+// #define jinit_color_converter	port_jinit_color_converter
+// #define jinit_downsampler	port_jinit_downsampler
+// #define jinit_forward_dct	port_jinit_forward_dct
+// #define jinit_huff_encoder	port_jinit_huff_encoder
+// #define jinit_arith_encoder	port_jinit_arith_encoder
+// #define jinit_marker_writer	port_jinit_marker_writer
+// #define jinit_master_decompress	port_jinit_master_decompress
+// #define jinit_d_main_controller	port_jinit_d_main_controller
+// #define jinit_d_coef_controller	port_jinit_d_coef_controller
+// #define jinit_d_post_controller	port_jinit_d_post_controller
+// #define jinit_input_controller	port_jinit_input_controller
+// #define jinit_marker_reader	port_jinit_marker_reader
+// #define jinit_huff_decoder	port_jinit_huff_decoder
+// #define jinit_arith_decoder	port_jinit_arith_decoder
+// #define jinit_inverse_dct	port_jinit_inverse_dct
+// #define jinit_upsampler		port_jinit_upsampler
+// #define jinit_color_deconverter	port_jinit_color_deconverter
+// #define jinit_1pass_quantizer	port_jinit_1pass_quantizer
+// #define jinit_2pass_quantizer	port_jinit_2pass_quantizer
+// #define jinit_merged_upsampler	port_jinit_merged_upsampler
+// #define jinit_memory_mgr	port_jinit_memory_mgr
+// #define jdiv_round_up		port_jdiv_round_up
+// #define jround_up		port_jround_up
+// #define jzero_far		port_jzero_far
+// #define jcopy_sample_rows	port_jcopy_sample_rows
+// #define jcopy_block_row		port_jcopy_block_row
+// #define jpeg_zigzag_order	port_jpeg_zigzag_order
+// #define jpeg_natural_order	port_jpeg_natural_order
+// #define jpeg_natural_order7	port_jpeg_natural_order7
+// #define jpeg_natural_order6	port_jpeg_natural_order6
+// #define jpeg_natural_order5	port_jpeg_natural_order5
+// #define jpeg_natural_order4	port_jpeg_natural_order4
+// #define jpeg_natural_order3	port_jpeg_natural_order3
+// #define jpeg_natural_order2	port_jpeg_natural_order2
+// #define jpeg_aritab		port_jpeg_aritab
+//
 #endif /* NEED_SHORT_EXTERNAL_NAMES */
 
 

@@ -941,6 +941,59 @@ typedef JMETHOD(boolean, jpeg_marker_parser_method, (j_decompress_ptr cinfo));
 #define jpeg_abort		jAbort
 #define jpeg_destroy		jDestroy
 #define jpeg_resync_to_restart	jResyncRestart
+#else
+// #define jpeg_CreateCompress	port_jpeg_CreateCompress
+// #define jpeg_CreateDecompress	port_jpeg_CreateDecompress
+// #define jpeg_destroy_compress	port_jpeg_destroy_compress
+// #define jpeg_destroy_decompress	port_jpeg_destroy_decompress
+// #define jpeg_stdio_dest		port_jpeg_stdio_dest
+// #define jpeg_stdio_src		port_jpeg_stdio_src
+// #define jpeg_mem_dest		port_jpeg_mem_dest
+// #define jpeg_mem_src		port_jpeg_mem_src
+// #define jpeg_set_defaults	port_jpeg_set_defaults
+// #define jpeg_set_colorspace	port_jpeg_set_colorspace
+// #define jpeg_default_colorspace	port_jpeg_default_colorspace
+// #define jpeg_set_quality	port_jpeg_set_quality
+// #define jpeg_set_linear_quality	port_jpeg_set_linear_quality
+// #define jpeg_default_qtables	port_jpeg_default_qtables
+// #define jpeg_add_quant_table	port_jpeg_add_quant_table
+// #define jpeg_quality_scaling	port_jpeg_quality_scaling
+// #define jpeg_simple_progression	port_jpeg_simple_progression
+// #define jpeg_suppress_tables	port_jpeg_suppress_tables
+// #define jpeg_alloc_quant_table	port_jpeg_alloc_quant_table
+// #define jpeg_alloc_huff_table	port_jpeg_alloc_huff_table
+// #define jpeg_start_compress	port_jpeg_start_compress
+// #define jpeg_write_scanlines	port_jpeg_write_scanlines
+// #define jpeg_finish_compress	port_jpeg_finish_compress
+// #define jpeg_calc_jpeg_dimensions	port_jpeg_calc_jpeg_dimensions
+// #define jpeg_write_raw_data	port_jpeg_write_raw_data
+// #define jpeg_write_marker	port_jpeg_write_marker
+// #define jpeg_write_m_header	port_jpeg_write_m_header
+// #define jpeg_write_m_byte	port_jpeg_write_m_byte
+// #define jpeg_write_tables	port_jpeg_write_tables
+// #define jpeg_read_header	port_jpeg_read_header
+// #define jpeg_start_decompress	port_jpeg_start_decompress
+// #define jpeg_read_scanlines	port_jpeg_read_scanlines
+// #define jpeg_finish_decompress	port_jpeg_finish_decompress
+// #define jpeg_read_raw_data	port_jpeg_read_raw_data
+// #define jpeg_has_multiple_scans	port_jpeg_has_multiple_scans
+// #define jpeg_start_output	port_jpeg_start_output
+// #define jpeg_finish_output	port_jpeg_finish_output
+// #define jpeg_input_complete	port_jpeg_input_complete
+// #define jpeg_new_colormap	port_jpeg_new_colormap
+// #define jpeg_consume_input	port_jpeg_consume_input
+// #define jpeg_core_output_dimensions	port_jpeg_core_output_dimensions
+// #define jpeg_calc_output_dimensions	port_jpeg_calc_output_dimensions
+// #define jpeg_save_markers	port_jpeg_save_markers
+// #define jpeg_set_marker_processor	port_jpeg_set_marker_processor
+// #define jpeg_read_coefficients	port_jpeg_read_coefficients
+// #define jpeg_write_coefficients	port_jpeg_write_coefficients
+// #define jpeg_copy_critical_parameters	port_jpeg_copy_critical_parameters
+// #define jpeg_abort_compress	port_jpeg_abort_compress
+// #define jpeg_abort_decompress	port_jpeg_abort_decompress
+// #define jpeg_abort		port_jpeg_abort
+// #define jpeg_destroy		port_jpeg_destroy
+// #define jpeg_resync_to_restart	port_jpeg_resync_to_restart
 #endif /* NEED_SHORT_EXTERNAL_NAMES */
 
 
