@@ -174,6 +174,8 @@ typedef char JOCTET;
 #endif /* HAVE_UNSIGNED_CHAR */
 
 
+#if !defined(_BASETSD_H_) && !defined(QGLOBAL_H)
+
 /* These typedefs are used for various table entries and so forth.
  * They must be at least as wide as specified; but making them too big
  * won't cost a huge amount of memory, so we don't provide special
@@ -200,6 +202,8 @@ typedef unsigned short UINT16;
 #else /* not HAVE_UNSIGNED_SHORT */
 typedef unsigned int UINT16;
 #endif /* HAVE_UNSIGNED_SHORT */
+
+#endif
 
 /* INT16 must hold at least the values -32768..32767. */
 
