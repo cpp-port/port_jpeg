@@ -189,5 +189,8 @@
     <None Include="jpeg.def">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="port_jpeg.def">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
