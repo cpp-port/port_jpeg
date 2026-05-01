@@ -27,18 +27,46 @@
  * The error manager must already be set up (in case memory manager fails).
  */
 
-GLOBAL(void)
-jpeg_CreateCompress (j_compress_ptr cinfo, int version, size_t structsize)
+GLOBAL(int)
+
+jpeg_CreateCompress2 (j_compress_ptr cinfo, int version, size_t structsize, struct int_equality_debug_t * pintequalitydebug)
 {
-  int i;
+   
+   int i;
+
+
+
+      INT_EQUALITY_DEBUG_START();
+   INT_EQUALITY_DEBUG_INNER_INT(JPEG_LIB_VERSION);
+   INT_EQUALITY_DEBUG_INNER_INT(sizeof(struct jpeg_compress_struct));
+   INT_EQUALITY_DEBUG_OFFSET(struct jpeg_compress_struct, comp_info);
+   INT_EQUALITY_DEBUG_OFFSET(struct jpeg_compress_struct, num_scans);
+   INT_EQUALITY_DEBUG_OFFSET(struct jpeg_compress_struct, restart_interval);
+   INT_EQUALITY_DEBUG_OFFSET(struct jpeg_compress_struct, density_unit);
+   INT_EQUALITY_DEBUG_OFFSET(struct jpeg_compress_struct, X_density);
+   INT_EQUALITY_DEBUG_OFFSET(struct jpeg_compress_struct, Y_density);
+   INT_EQUALITY_DEBUG_OFFSET(struct jpeg_compress_struct, write_Adobe_marker);
+   INT_EQUALITY_DEBUG_OFFSET(struct jpeg_compress_struct, color_transform);
+   INT_EQUALITY_DEBUG_OFFSET(struct jpeg_compress_struct, next_scanline);
+   INT_EQUALITY_DEBUG_OFFSET(struct jpeg_compress_struct, progressive_mode);
+   INT_EQUALITY_DEBUG_OFFSET(struct jpeg_compress_struct, Ss);
+   INT_EQUALITY_DEBUG_OFFSET(struct jpeg_compress_struct, master);
+
+  //piDebug[iDebug++] = (int)offsetof(struct jpeg_compress_struct, comp_info);
+  //piDebug[iDebug++] = (int)offsetof(struct jpeg_compress_struct, num_scans);
+  
+  //piDebug[iDebug++] = (int)offsetof(struct jpeg_compress_struct, progressive_mode);
+  //piDebug[iDebug++] = (int)offsetof(struct jpeg_compress_struct, master);
 
   /* Guard against version mismatches between library and caller. */
   cinfo->mem = NULL;		/* so jpeg_destroy knows mem mgr not called */
   if (version != JPEG_LIB_VERSION)
-    ERREXIT2(cinfo, JERR_BAD_LIB_VERSION, JPEG_LIB_VERSION, version);
+     return JERR_BAD_LIB_VERSION;
+    //ERREXIT2(cinfo, JERR_BAD_LIB_VERSION, JPEG_LIB_VERSION, version);
   if (structsize != SIZEOF(struct jpeg_compress_struct))
-    ERREXIT2(cinfo, JERR_BAD_STRUCT_SIZE, 
-	     (int) SIZEOF(struct jpeg_compress_struct), (int) structsize);
+     return JERR_BAD_STRUCT_SIZE;
+    // ERREXIT2(cinfo, JERR_BAD_STRUCT_SIZE,
+	   //   (int) SIZEOF(struct jpeg_compress_struct), (int) structsize);
 
   /* For debugging purposes, we zero the whole master structure.
    * But the application has already set the err pointer, and may have set
@@ -85,6 +113,7 @@ jpeg_CreateCompress (j_compress_ptr cinfo, int version, size_t structsize)
 
   /* OK, I'm ready */
   cinfo->global_state = CSTATE_START;
+   return 0;
 }
 
 

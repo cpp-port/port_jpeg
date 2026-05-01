@@ -437,12 +437,18 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <Link>
-      <AdditionalLibraryDirectories>$(OutDir);$(__operating_system)third-universal_windows/$(PlatformName)/$(Configuration)/lib;$(__operating_system)third-universal_windows/thirdparty/library/$(PlatformName)/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ModuleDefinitionFile>$(ProjectName).def</ModuleDefinitionFile>
       <ImageHasSafeExceptionHandlers>
       </ImageHasSafeExceptionHandlers>
-      <ImportLibrary>$(RootParentDirOperatingSystem)storage-windows\$(PlatformName)\$(Configuration)\third\library\$(TargetName).lib</ImportLibrary>
     </Link>
+    <CustomBuildStep>
+      <Command>copy $(TargetPath) $(BaseDir)cmake-build-debug\output\$(TargetName)$(TargetExt)
+echo Copying from '$(TargetPath)' to '$(BaseDir)cmake-build-debug\output\$(TargetName)$(TargetExt)'</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>$(BaseDir)cmake-build-debug\output\$(TargetName)$(TargetExt)</Outputs>
+      <Inputs>$(TargetPath)</Inputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <Midl />
@@ -821,7 +827,6 @@
     <ClInclude Include="transupp.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="jpeg.def" />
     <None Include="port_jpeg.def" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -14,6 +14,7 @@
 #ifndef JPEGLIB_H
 #define JPEGLIB_H
 
+#include "int_equality_debug_c.h"
 /*
  * First we include the configuration files that record how this
  * installation of the JPEG library is set up.  jconfig.h can be
@@ -373,15 +374,15 @@ struct jpeg_compress_struct {
   /* Parameters controlling emission of special markers. */
 
   boolean write_JFIF_header;	/* should a JFIF marker be written? */
-  UINT8 JFIF_major_version;	/* What to write for the JFIF version number */
-  UINT8 JFIF_minor_version;
+  unsigned char JFIF_major_version;	/* What to write for the JFIF version number */
+  unsigned char JFIF_minor_version;
   /* These three values are not used by the JPEG code, merely copied */
   /* into the JFIF APP0 marker.  density_unit can be 0 for unknown, */
   /* 1 for dots/inch, or 2 for dots/cm.  Note that the pixel aspect */
   /* ratio is defined by X_density/Y_density even when density_unit=0. */
-  UINT8 density_unit;		/* JFIF code for pixel size units */
-  UINT16 X_density;		/* Horizontal pixel density */
-  UINT16 Y_density;		/* Vertical pixel density */
+  unsigned char density_unit;		/* JFIF code for pixel size units */
+  unsigned short X_density;		/* Horizontal pixel density */
+  unsigned short Y_density;		/* Vertical pixel density */
   boolean write_Adobe_marker;	/* should an Adobe marker be written? */
 
   J_COLOR_TRANSFORM color_transform;
@@ -889,7 +890,7 @@ typedef JMETHOD(boolean, jpeg_marker_parser_method, (j_decompress_ptr cinfo));
 
 #ifdef NEED_SHORT_EXTERNAL_NAMES
 #define jpeg_std_error		jStdError
-#define jpeg_CreateCompress	jCreaCompress
+#define jpeg_CreateCompress2	jCreaCompress2
 #define jpeg_CreateDecompress	jCreaDecompress
 #define jpeg_destroy_compress	jDestCompress
 #define jpeg_destroy_decompress	jDestDecompress
@@ -942,7 +943,7 @@ typedef JMETHOD(boolean, jpeg_marker_parser_method, (j_decompress_ptr cinfo));
 #define jpeg_destroy		jDestroy
 #define jpeg_resync_to_restart	jResyncRestart
 #else
-#define jpeg_CreateCompress	port_jpeg_CreateCompress
+#define jpeg_CreateCompress2	port_jpeg_CreateCompress2
 #define jpeg_CreateDecompress	port_jpeg_CreateDecompress
 #define jpeg_destroy_compress	port_jpeg_destroy_compress
 #define jpeg_destroy_decompress	port_jpeg_destroy_decompress
@@ -1008,14 +1009,14 @@ EXTERN(struct jpeg_error_mgr *) jpeg_std_error
  * passed for version mismatch checking.
  * NB: you must set up the error-manager BEFORE calling jpeg_create_xxx.
  */
-#define jpeg_create_compress(cinfo) \
-    jpeg_CreateCompress((cinfo), JPEG_LIB_VERSION, \
-			(size_t) sizeof(struct jpeg_compress_struct))
+#define jpeg_create_compress2(cinfo,debug_inner) \
+    jpeg_CreateCompress2((cinfo), JPEG_LIB_VERSION, \
+			(size_t) sizeof(struct jpeg_compress_struct), (debug_inner))
 #define jpeg_create_decompress(cinfo) \
     jpeg_CreateDecompress((cinfo), JPEG_LIB_VERSION, \
 			  (size_t) sizeof(struct jpeg_decompress_struct))
-EXTERN(void) jpeg_CreateCompress JPP((j_compress_ptr cinfo,
-				      int version, size_t structsize));
+EXTERN(int) jpeg_CreateCompress2 JPP((j_compress_ptr cinfo, int version, size_t structsize, 
+   struct int_equality_debug_t * pintequalitydebug));
 EXTERN(void) jpeg_CreateDecompress JPP((j_decompress_ptr cinfo,
 					int version, size_t structsize));
 /* Destruction of JPEG compression objects */
@@ -1229,5 +1230,4 @@ struct jpeg_color_quantizer { long dummy; };
 }
 #endif
 #endif
-
 #endif /* JPEGLIB_H */
