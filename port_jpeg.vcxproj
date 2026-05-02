@@ -415,9 +415,18 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <Link>
+      <ModuleDefinitionFile>$(ProjectName).def</ModuleDefinitionFile>
       <ImageHasSafeExceptionHandlers>
       </ImageHasSafeExceptionHandlers>
     </Link>
+    <CustomBuildStep>
+      <Command>copy $(TargetPath) $(BaseDir)cmake-build-debug\output\$(TargetName)$(TargetExt)
+echo Copying from '$(TargetPath)' to '$(BaseDir)cmake-build-debug\output\$(TargetName)$(TargetExt)'</Command>
+    </CustomBuildStep>
+    <CustomBuildStep>
+      <Outputs>$(BaseDir)cmake-build-debug\output\$(TargetName)$(TargetExt)</Outputs>
+      <Inputs>$(TargetPath)</Inputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <Midl />
@@ -750,6 +759,18 @@
     <ClCompile Include="jquant2.c" />
     <ClCompile Include="jutils.c" />
     <ClCompile Include="transupp.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="jconfig.h" />
+    <ClInclude Include="jdct.h" />
+    <ClInclude Include="jerror.h" />
+    <ClInclude Include="jinclude.h" />
+    <ClInclude Include="jmemsys.h" />
+    <ClInclude Include="jmorecfg.h" />
+    <ClInclude Include="jpegint.h" />
+    <ClInclude Include="jpeglib.h" />
+    <ClInclude Include="jversion.h" />
+    <ClInclude Include="transupp.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="port_jpeg.def" />
