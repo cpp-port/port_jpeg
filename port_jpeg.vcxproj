@@ -415,7 +415,6 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Lib>
     <Link>
-      <ModuleDefinitionFile>$(ProjectName).def</ModuleDefinitionFile>
       <ImageHasSafeExceptionHandlers>
       </ImageHasSafeExceptionHandlers>
     </Link>
