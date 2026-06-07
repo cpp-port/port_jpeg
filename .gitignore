@@ -13,3 +13,6 @@ _matter.zip
 _packages.txt
 _packages.txt
 deployment.rc
+# Build output directories at any depth
+build/
+Build/
