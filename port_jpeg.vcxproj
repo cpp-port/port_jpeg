@@ -494,6 +494,7 @@
     <Link>
       <ImageHasSafeExceptionHandlers>
       </ImageHasSafeExceptionHandlers>
+      <SubSystem>Windows</SubSystem>
     </Link>
     <CustomBuildStep>
       <Command>copy $(TargetPath) $(BaseDir)cmake-build-debug\output\$(TargetName)$(TargetExt)
@@ -564,6 +565,7 @@ echo Copying from '$(TargetPath)' to '$(BaseDir)cmake-build-debug\output\$(Targe
       <ImageHasSafeExceptionHandlers>
       </ImageHasSafeExceptionHandlers>
       <ImportLibrary>$(RootParentDirOperatingSystem)storage-windows\$(PlatformName)\$(Configuration)\third\library\$(TargetName).lib</ImportLibrary>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='DebugAsan|ARM64'">
@@ -757,6 +759,7 @@ echo Copying from '$(TargetPath)' to '$(BaseDir)cmake-build-debug\output\$(Targe
       <ImageHasSafeExceptionHandlers>
       </ImageHasSafeExceptionHandlers>
       <ImportLibrary>$(RootParentDirOperatingSystem)storage-windows\$(PlatformName)\$(Configuration)\third\library\$(TargetName).lib</ImportLibrary>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
@@ -789,6 +792,7 @@ echo Copying from '$(TargetPath)' to '$(BaseDir)cmake-build-debug\output\$(Targe
       <ImageHasSafeExceptionHandlers>
       </ImageHasSafeExceptionHandlers>
       <ImportLibrary>$(RootParentDirOperatingSystem)storage-windows\$(PlatformName)\$(Configuration)\third\library\$(TargetName).lib</ImportLibrary>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='StaticRelease|x64'">
