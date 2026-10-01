@@ -14,7 +14,7 @@
 #ifndef JPEGLIB_H
 #define JPEGLIB_H
 
-#include "int_equality_debug_c.h"
+#include "debug/int_equality_c.h"
 /*
  * First we include the configuration files that record how this
  * installation of the JPEG library is set up.  jconfig.h can be
