@@ -94,7 +94,9 @@ list(APPEND library_source
 
 )
 
-if(${LINUX} OR ${__ANDROID__} OR ${WIN32} OR ${__BSD__} OR ${__SUNOS__})
+# Haiku supports tmpfile(); the generic named-file backend assumes /usr/tmp,
+# which does not exist there and breaks JPEGs that need backing storage.
+if(${LINUX} OR ${__ANDROID__} OR ${WIN32} OR ${__BSD__} OR ${__SUNOS__} OR ${__HAIKU__})
     list(APPEND library_source
         jmemansi.c
     )
